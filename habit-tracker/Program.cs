@@ -17,6 +17,11 @@ namespace habit_tracker
             using(var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
 
                 tableCmd.CommandText = @"
@@ -133,6 +138,10 @@ namespace habit_tracker
             {
                 connection.Open();
 
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
 
                 tableCmd.CommandText = """
@@ -184,6 +193,11 @@ namespace habit_tracker
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = "INSERT INTO HabitLogs VALUES (Null, @Quantity, @Date, @HabitId)";
                 tableCmd.Parameters.AddWithValue("@Quantity", quantity);
@@ -208,6 +222,10 @@ namespace habit_tracker
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
 
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = "DELETE FROM HabitLogs WHERE HabitLogsId = @RecordId";
@@ -236,6 +254,10 @@ namespace habit_tracker
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
 
                 var checkCmd = connection.CreateCommand();
                 checkCmd.CommandText = "SELECT EXISTS(SELECT 1 FROM HabitLogs WHERE HabitLogsId = @RecordId)";
@@ -335,6 +357,11 @@ namespace habit_tracker
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = """SELECT * FROM Habits""";
                 SqliteDataReader reader = tableCmd.ExecuteReader();
@@ -374,6 +401,11 @@ namespace habit_tracker
             using(var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = """
                     INSERT INTO Habits
@@ -402,6 +434,11 @@ namespace habit_tracker
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open( );
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = """
                     DELETE FROM Habits
@@ -431,6 +468,11 @@ namespace habit_tracker
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
+
+                var pragmaCmd = connection.CreateCommand();
+                pragmaCmd.CommandText = "PRAGMA foreign_keys = ON;";
+                pragmaCmd.ExecuteNonQuery();
+
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = """
                     UPDATE Habits
