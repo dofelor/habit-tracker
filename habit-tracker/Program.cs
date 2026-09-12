@@ -294,7 +294,7 @@ namespace habit_tracker
 
             string dateInput = Console.ReadLine();
 
-            while (!DateTime.TryParseExact(dateInput, "dd-MM-yy", new CultureInfo("en-us"), DateTimeStyles.None, out _))
+            while (!DateValidator.IsValidDate(dateInput))
             {
                 Console.WriteLine("\n\nInvalid date. (Format: dd-mm-yy).\n\n");
                 dateInput = Console.ReadLine();
